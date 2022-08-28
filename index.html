@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrap {
+				width: 450px;
+				height: 600px;
+				overflow: hidden;
+				position: relative;
+				border: 2px solid black;
+				margin: 50px auto 0;
+			}
+			
+			#imgs {
+				width: 2700px;
+				height: 600px;
+				position: absolute;
+			}
+			
+			img {
+				float: left;
+				width: 450px;
+				height: 600px;
+			}
+			
+			#demo {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				display: none;
+			}
+			
+			.a {
+				width: 50px;
+				height: 50px;
+			}
+			#sr{
+				background: linear-gradient(to right, red, green);
+        		-webkit-background-clip: text;
+        		color: transparent;
+			}
+			#zsr{
+				background: linear-gradient(to right, blue, pink);
+        		-webkit-background-clip: text;
+        		color: transparent;
+			}
+		</style>
+
+	</head>
+	<div class="gn_box">
+		<h1><center><font color=#E80017>你</font><font color=#D1002E>已经</font><font color=#BA0045>当</font><font color=#A3005C>我</font><font
+            color=#8C0073>姐</font><!--<font color=#75008A>-</font><font color=#5E00A1>新</font><font
+            color=#4700B8>年</font><font color=#3000CF>倒</font><font color=#1900E6>计</font><font color=#0200FD>时</font>-->
+    </center></h1>
+		<center>
+			<div id="CountMsg" class="HotDate">
+				<span id="t_d">天</span>
+				<span id="t_h">时</span>
+				<span id="t_m">分</span>
+				<span id="t_s">秒</span>
+			</div>
+		</center>
+		<script type="text/javascript">
+			function getRTime() {
+				var EndTime = new Date('2000/01/03 22:20:00');
+				var NowTime = new Date();
+				var t = NowTime.getTime() - EndTime.getTime();
+				var d = Math.floor(t / 1000 / 60 / 60 / 24);
+				var h = Math.floor(t / 1000 / 60 / 60 % 24);
+				var m = Math.floor(t / 1000 / 60 % 60);
+				var s = Math.floor(t / 1000 % 60);
+				document.getElementById("t_d").innerHTML ="<b>" +d + " 天</b>";
+				document.getElementById("t_h").innerHTML ="<b>" + h + " 时</b>";
+				document.getElementById("t_m").innerHTML = "<b>" +m + " 分</b>";
+				document.getElementById("t_s").innerHTML ="<b>" + s + " 秒</b>";
+			}
+			setInterval(getRTime, 1000);
+		</script>
+	</div>
+
+	<body>
+		<!--<div id="demo" >
+			<img class="a" src="img.png"/>
+		</div>-->
+		<div align="center">
+			<h1><font color=#75008A>这</font><font color=#5E00A1>么</font><font
+            color=#4700B8>长</font><font color=#3000CF>时间</font><font color=#1900E6>了</font><font color=#0200FD></h1>
+		</div>
+		<div align="center">
+			<h1><font id="sr">今天是你生日</font></h1><br>
+			<h1><font id="zsr">祝你生日快乐！！！</font></h1>
+		</div>
+		<div id="wrap">
+
+			<div id="imgs">
+
+				<img src="img/test1.jpg" />
+
+				<img src="img/test2.jpg" />
+
+				<img src="img/test3.jpg" />
+
+				<img src="img/test4.jpg" />
+
+				<img src="img/test5.jpg" />
+
+				<img src="img/test1.jpg" />
+
+			</div>
+
+		</div>
+
+	</body>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function() {
+			move();
+		})
+
+		// function move() {
+		// 	$("#imgs").animate({
+		// 		"left": "-450px"
+		// 	}, 5000, function() {
+
+		// 		$("#imgs").animate({
+		// 			"left": "-900px"
+		// 		}, 5000, function() {
+		// 			$("#imgs").animate({
+		// 				"left": "-1350px"
+		// 			}, 5000, function() {
+		// 				$("#imgs").css("left", "0px");
+		// 				move();
+		// 			})
+		// 		})
+
+		// 	})
+
+		// }
+		function move() {
+			$("#imgs").animate({
+				"left": "-450px"
+			}, 5000, function() {
+
+				$("#imgs").animate({
+					"left": "-900px"
+				}, 5000, function() {
+					$("#imgs").animate({
+						"left": "-1350px"
+					}, 5000, function() {
+						$("#imgs").animate({
+							"left" : "-1800px"
+						}, 5000, function(){
+							$("#imgs").animate({
+								"left" : "-2250px"
+							}, 5000, function(){
+								$("#imgs").css("left" , "0px");
+								move();
+							})
+						})
+					})
+				})
+
+			})
+
+		}
+	</script>
+
+</html>
